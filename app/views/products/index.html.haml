@@ -1,0 +1,15 @@
+%h1 Products:
+
+%p
+  Total products number:
+  = @products.all.count
+
+%ul
+  - @products.each do |product|
+    %li
+      %b= product.name
+      %br
+      %small= product.description
+      %br
+      = 'cost: '
+      %i= '$%.2f' % (product.price / 100.0)

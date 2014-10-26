@@ -1,0 +1,22 @@
+%h1
+  Order number:
+  = @order.id
+
+%ul
+  %li
+    Recipient's name:
+    = @order.recipients_name
+  %li
+    Shipping address:
+    = @order.shipping_address
+
+%h2 List of products:
+%ol
+  - @order.products.each do |product|
+    %li
+      %b= product.name
+      %br
+      %small= product.description
+      %br
+      = 'cost: '
+      %i= '$%.2f' % (product.price / 100.0)
